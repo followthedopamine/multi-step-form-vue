@@ -1,38 +1,58 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NextButton from './components/NextButton.vue'
+import FormPanel from './components/FormPanel.vue'
+import StepButton from './components/StepButton.vue'
+import { ref } from 'vue'
+
+const currentStep = ref(1)
+
+const changeStep = (newStep: number) => {
+  currentStep.value = newStep
+}
+
+const nextStep = () => {
+  currentStep.value++
+  console.log(currentStep.value)
+}
+</script>
 
 <template>
-  <header></header>
-
-  <main>
-    <div class="w-full h-full bg-black">a</div>
-  </main>
+  <div class="flex flex-col h-full">
+    <header class="h-40 flex justify-center">
+      <div class="mt-8 w-5/12 flex justify-between">
+        <StepButton
+          @changeStep="(newStep) => changeStep(newStep)"
+          :step="1"
+          :current-step="currentStep"
+        ></StepButton>
+        <StepButton
+          @changeStep="(newStep) => changeStep(newStep)"
+          :step="2"
+          :current-step="currentStep"
+        ></StepButton>
+        <StepButton
+          @changeStep="(newStep) => changeStep(newStep)"
+          :step="3"
+          :current-step="currentStep"
+        ></StepButton>
+        <StepButton
+          @changeStep="(newStep) => changeStep(newStep)"
+          :step="4"
+          :current-step="currentStep"
+        ></StepButton>
+      </div>
+    </header>
+    <main class="flex-col flex-grow flex items-center bg-light-gray">
+      <FormPanel></FormPanel>
+    </main>
+    <footer class="h-16 py-10 flex flex-col items-start justify-center">
+      <NextButton @next-step="nextStep" :current-step="currentStep"></NextButton>
+    </footer>
+  </div>
 </template>
 
 <style scoped>
 header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+  background-image: url('assets/images/bg-sidebar-mobile.svg');
 }
 </style>
