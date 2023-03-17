@@ -43,7 +43,7 @@ const nextStep = () => {
       </div>
     </header>
     <main class="flex-col flex-grow flex items-center bg-light-gray">
-      <FormPanel></FormPanel>
+      <FormPanel :current-step="currentStep"></FormPanel>
     </main>
     <footer class="h-16 py-10 flex flex-col items-start justify-center">
       <NextButton @next-step="nextStep" :current-step="currentStep"></NextButton>
