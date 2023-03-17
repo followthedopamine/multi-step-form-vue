@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import TextInput from './TextInput.vue'
+import LargeRadioButton from './LargeRadioButton.vue'
 const props = defineProps({
   currentStep: Number
 })
@@ -15,35 +16,31 @@ const props = defineProps({
           Please provide your name, email address, and phone number.
         </h2>
 
-        <TextInput input-id="name" label-text="Name" placeholder="e.g. Stephen King"></TextInput>
+        <TextInput input-id="name" label-text="Name" placeholder="e.g. Stephen King" />
         <TextInput
           input-id="email"
           label-text="Email Address"
           placeholder="e.g. stephenking@lorem.com"
-        ></TextInput>
-        <TextInput
-          input-id="phone"
-          label-text="Phone Number"
-          placeholder="e.g. +1 234 567 890"
-        ></TextInput>
+        />
+        <TextInput input-id="phone" label-text="Phone Number" placeholder="e.g. +1 234 567 890" />
       </div>
 
       <div v-show="currentStep === 2" id="step-2">
         <h1 class="text-marine-blue font-bold text-2xl mb-4">Select your plan</h1>
         <h2 class="h1 text-cool-gray mb-4">You have the option of monthly or yearly billing.</h2>
-
-        <TextInput input-id="name" label-text="Name" placeholder="e.g. Stephen King"></TextInput>
-        <TextInput
-          input-id="email"
-          label-text="Email Address"
-          placeholder="e.g. stephenking@lorem.com"
-        ></TextInput>
-        <TextInput
-          input-id="phone"
-          label-text="Phone Number"
-          placeholder="e.g. +1 234 567 890"
-        ></TextInput>
+        <div class="radios">
+          <LargeRadioButton />
+          <LargeRadioButton />
+          <LargeRadioButton />
+        </div>
       </div>
     </form>
   </div>
 </template>
+
+<style scoped>
+.radios input[type='radio']:checked + label {
+  border-color: #544c97;
+  background-color: #f8f9fe;
+}
+</style>
