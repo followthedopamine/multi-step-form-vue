@@ -1,13 +1,24 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const props = defineProps({
+  value: String,
+  label: String,
+  text: String,
+  name: String
+})
+</script>
 
 <template>
-  <div class="radios">
-    <input id="arcade" name="arcade" type="radio" class="w-0 fixed opacity-0" />
-    <label class="w-full border border-light-gray rounded-lg h-20 flex items-center" for="arcade">
-      <i class="arcade w-[40px] h-[40px] block mx-4"></i>
-      Arcade
-    </label>
-  </div>
+  <input :id="props.value" :name="props.name" type="radio" class="w-0 fixed opacity-0" />
+  <label
+    class="cursor-pointer w-full border border-light-gray rounded-lg h-20 flex items-center mb-4"
+    :for="props.value"
+  >
+    <i class="w-[40px] h-[40px] block mx-4" :class="props.value"></i>
+    <div>
+      <div class="text-marine-blue font-medium text-lg">{{ props.label }}</div>
+      <div class="text-cool-gray">{{ props.text }}</div>
+    </div>
+  </label>
 </template>
 
 <style scoped>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import TextInput from './TextInput.vue'
 import LargeRadioButton from './LargeRadioButton.vue'
+import RoundedCheckboxToggle from './RoundedCheckboxToggle.vue'
 const props = defineProps({
   currentStep: Number
 })
@@ -29,18 +30,26 @@ const props = defineProps({
         <h1 class="text-marine-blue font-bold text-2xl mb-4">Select your plan</h1>
         <h2 class="h1 text-cool-gray mb-4">You have the option of monthly or yearly billing.</h2>
         <div class="radios">
-          <LargeRadioButton />
-          <LargeRadioButton />
-          <LargeRadioButton />
+          <LargeRadioButton value="arcade" label="Arcade" text="$9/mo" name="plan" />
+          <LargeRadioButton value="advanced" label="Advanced" text="$12/mo" name="plan" />
+          <LargeRadioButton value="pro" label="Pro" text="$15/mo" name="plan" />
         </div>
+        <RoundedCheckboxToggle />
       </div>
     </form>
   </div>
 </template>
 
 <style scoped>
-.radios input[type='radio']:checked + label {
-  border-color: #544c97;
-  background-color: #f8f9fe;
+.chk:checked + .chk-label {
+  background-color: violet;
+}
+
+.chk:unchecked + .unchk-label {
+  background-color: violet;
+}
+
+.chk-label {
+  background-color: blue;
 }
 </style>
