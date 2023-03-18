@@ -5,6 +5,13 @@ import RoundedCheckboxToggle from './RoundedCheckboxToggle.vue'
 const props = defineProps({
   currentStep: Number
 })
+
+let yearly = false
+
+const monthlyYearlyToggle = () => {
+  yearly = !yearly
+  console.log(yearly)
+}
 </script>
 
 <template>
@@ -34,7 +41,7 @@ const props = defineProps({
           <LargeRadioButton value="advanced" label="Advanced" text="$12/mo" name="plan" />
           <LargeRadioButton value="pro" label="Pro" text="$15/mo" name="plan" />
         </div>
-        <RoundedCheckboxToggle />
+        <RoundedCheckboxToggle @toggle-changed="monthlyYearlyToggle" />
       </div>
     </form>
   </div>

@@ -1,8 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const emit = defineEmits(['toggleChanged'])
+
+const handleToggleChanged = () => {
+  emit('toggleChanged')
+}
+</script>
 
 <template>
   <div class="bg-magnolia flex justify-around p-3 px-14 font-medium rounded-lg mt-6">
-    <input id="yearly" type="checkbox" hidden />
+    <input id="yearly" class="sr-only" type="checkbox" @change="handleToggleChanged" />
     <label for="yearly" class="unchk-label text-marine-blue"> Monthly </label>
     <label for="yearly" class="relative inline-flex items-center cursor-pointer group">
       <div class="w-11 h-6 bg-marine-blue rounded-full">
