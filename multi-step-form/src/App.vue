@@ -4,7 +4,7 @@ import FormPanel from './components/FormPanel.vue'
 import StepButton from './components/StepButton.vue'
 import { ref } from 'vue'
 
-const currentStep = ref(2)
+const currentStep = ref(3)
 
 const changeStep = (newStep: number) => {
   currentStep.value = newStep
