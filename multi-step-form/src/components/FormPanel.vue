@@ -3,16 +3,41 @@ import TextInput from './TextInput.vue'
 import LargeRadioButton from './LargeRadioButton.vue'
 import RoundedCheckboxToggle from './RoundedCheckboxToggle.vue'
 import LargeRoundedCheckbox from './LargeRoundedCheckbox.vue'
+import { ref } from 'vue'
 const props = defineProps({
   currentStep: Number
 })
 
-let yearly = false
-
 const monthlyYearlyToggle = () => {
-  yearly = !yearly
-  console.log(yearly)
+  data.value.yearly = !data.value.yearly
 }
+
+enum plans {
+  arcade,
+  advanced,
+  pro
+}
+
+const options: Object = {
+  onlineService: {
+    name: 'Online service',
+    price: 1
+  },
+  largerStorage: {
+    name: 'Larger storage',
+    price: 2
+  },
+  customizableProfile: {
+    name: 'Customizable profile',
+    price: 2
+  }
+}
+
+const data = ref({
+  plan: plans.arcade,
+  yearly: false,
+  options: []
+})
 </script>
 
 <template>
@@ -38,9 +63,24 @@ const monthlyYearlyToggle = () => {
         <h1 class="text-marine-blue font-bold text-2xl mb-4">Select your plan</h1>
         <h2 class="h1 text-cool-gray mb-4">You have the option of monthly or yearly billing.</h2>
         <div class="radios">
-          <LargeRadioButton value="arcade" label="Arcade" text="$9/mo" name="plan" />
-          <LargeRadioButton value="advanced" label="Advanced" text="$12/mo" name="plan" />
-          <LargeRadioButton value="pro" label="Pro" text="$15/mo" name="plan" />
+          <LargeRadioButton
+            value="arcade"
+            label="Arcade"
+            :text="data.yearly ? '$90/yr' : '$9/mo'"
+            name="plan"
+          />
+          <LargeRadioButton
+            value="advanced"
+            label="Advanced"
+            :text="data.yearly ? '$120/yr' : '$12/mo'"
+            name="plan"
+          />
+          <LargeRadioButton
+            value="pro"
+            label="Pro"
+            :text="data.yearly ? '$150/yr' : '$15/mo'"
+            name="plan"
+          />
         </div>
         <RoundedCheckboxToggle @toggle-changed="monthlyYearlyToggle" />
       </div>
