@@ -3,12 +3,23 @@ const props = defineProps({
   value: String,
   label: String,
   text: String,
-  name: String
+  subText: String,
+  name: String,
+  checked: {
+    type: Boolean,
+    default: false
+  }
 })
 </script>
 
 <template>
-  <input :id="props.value" :name="props.name" type="radio" class="w-0 fixed opacity-0" />
+  <input
+    :id="props.value"
+    :name="props.name"
+    type="radio"
+    class="w-0 fixed opacity-0"
+    :checked="props.checked"
+  />
   <label
     class="cursor-pointer w-full border border-light-gray rounded-lg h-20 flex items-center mb-4"
     :for="props.value"
@@ -17,6 +28,7 @@ const props = defineProps({
     <div>
       <div class="text-marine-blue font-medium text-lg">{{ props.label }}</div>
       <div class="text-cool-gray">{{ props.text }}</div>
+      <div class="text-marine-blue text-sm">{{ props.subText }}</div>
     </div>
   </label>
 </template>

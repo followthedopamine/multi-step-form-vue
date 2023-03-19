@@ -67,18 +67,22 @@ const data = ref({
             value="arcade"
             label="Arcade"
             :text="data.yearly ? '$90/yr' : '$9/mo'"
+            :sub-text="data.yearly ? '2 months free' : ''"
             name="plan"
+            checked
           />
           <LargeRadioButton
             value="advanced"
             label="Advanced"
             :text="data.yearly ? '$120/yr' : '$12/mo'"
+            :sub-text="data.yearly ? '2 months free' : ''"
             name="plan"
           />
           <LargeRadioButton
             value="pro"
             label="Pro"
             :text="data.yearly ? '$150/yr' : '$15/mo'"
+            :sub-text="data.yearly ? '2 months free' : ''"
             name="plan"
           />
         </div>
