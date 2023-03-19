@@ -16,7 +16,7 @@ const monthlyYearlyToggle = () => {
 </script>
 
 <template>
-  <div class="bg-white p-8 w-11/12 absolute -mt-16 rounded-lg drop-shadow">
+  <div class="bg-white p-7 w-11/12 absolute -mt-16 rounded-lg drop-shadow">
     <form action="">
       <!-- Hide this for step 2 - 5 -->
       <div v-show="currentStep === 1" id="step-1">
@@ -49,34 +49,60 @@ const monthlyYearlyToggle = () => {
         <h1 class="text-marine-blue font-bold text-2xl mb-4">Pick add-ons</h1>
         <h2 class="h1 text-cool-gray mb-4">Add-ons help enhance your gaming experience.</h2>
         <div class="checkboxes">
-          <LargeRoundedCheckbox />
-          <!-- <div>
-            <input
-              id="online-service"
-              type="checkbox"
-              class="accent-purplish-blue w-5 h-5 m-4 cursor-pointer absolute mt-7"
-            />
-            <label
-              for="online-service"
-              class="cursor-pointer flex items-center w-full border border-light-gray rounded-lg h-20 mb-4"
-            >
-              <label for="online-service" class="cursor-pointer ml-14 h-full">
-                <div class="h-full flex items-center">
-                  <div class="w-11/12 float-left -mt-2">
-                    <div class="text-marine-blue font-medium text-lg text-[1.05rem] tracking-tight">
-                      Online service
-                    </div>
-                    <div class="text-cool-gray text-xs tracking-tight w-11/12">
-                      Access to multiplayer games
-                    </div>
-                  </div>
-                  <div class="w-1/12 float-right text-purplish-blue text-sm h-full">
-                    <div class="flex items-center h-full -ml-3 font-medium"><div>+$1/mo</div></div>
-                  </div>
-                </div>
-              </label>
-            </label>
-          </div> -->
+          <LargeRoundedCheckbox
+            name="online-service"
+            value="online"
+            label="Online service"
+            text="Access to multiplayer games"
+            price="+$1/mo"
+          />
+          <LargeRoundedCheckbox
+            name="larger-storage"
+            value="larger"
+            label="Larger storage"
+            text="Extra 1TB of cloud save"
+            price="+$2/mo"
+          />
+          <LargeRoundedCheckbox
+            name="customizable-profile"
+            value="profile"
+            label="Customizable profile"
+            text="Custom theme on your profile"
+            price="+$2/mo"
+          />
+        </div>
+      </div>
+      <div v-show="currentStep === 4" id="step-4">
+        <h1 class="text-marine-blue font-bold text-2xl mb-4">Finishing up</h1>
+        <h2 class="h1 text-cool-gray mb-4">Double-check everything looks OK before confirming.</h2>
+        <div class="bg-magnolia rounded p-4">
+          <div class="flex text-marine-blue pb-3">
+            <div>
+              <div class="font-medium">Arcade (Monthly)</div>
+              <div class="text-cool-gray underline">Change</div>
+            </div>
+            <div class="ml-auto font-bold flex items-end mb-2"><div>$9/mo</div></div>
+          </div>
+          <hr class="border-light-gray mb-2" />
+          <ul>
+            <li class="flex py-1 text-cool-gray text-base">
+              <div>
+                <div>Online service</div>
+              </div>
+              <div class="ml-auto text-marine-blue">+$1/mo</div>
+            </li>
+            <li class="flex py-1 text-cool-gray text-base">
+              <div>
+                <div>Larger storage</div>
+              </div>
+              <div class="ml-auto text-marine-blue">+$2/mo</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-4 flex">
+          <div class="mt-0.5 text-cool-gray">Total (per month)</div>
+          <div class="ml-auto text-purplish-blue font-bold text-lg">+$12/mo</div>
         </div>
       </div>
     </form>
@@ -94,10 +120,5 @@ const monthlyYearlyToggle = () => {
 
 .chk-label {
   background-color: blue;
-}
-
-.checkboxes input[type='checkbox']:checked + label {
-  border-color: #544c97;
-  background-color: #f8f9fe;
 }
 </style>
