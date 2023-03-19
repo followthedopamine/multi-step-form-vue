@@ -33,7 +33,7 @@ const isChecked = ref(false)
       <label :for="props.name" class="cursor-pointer ml-14 h-full w-full">
         <div class="h-full w-full flex items-center">
           <div class="-mt-2">
-            <div class="text-marine-blue font-medium text-[1.05rem] text-[1.05rem] tracking-tight">
+            <div class="text-marine-blue font-medium text-[1.05rem] tracking-tight">
               {{ props.label }}
             </div>
             <div class="text-cool-gray text-xs text-[0.87rem] tracking-tight">

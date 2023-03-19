@@ -15,7 +15,14 @@ const handleNextStep = () => {
 </script>
 
 <template>
-  <button @click="handleNextStep" class="p-2 px-4 bg-marine-blue text-white rounded self-end mr-4">
+  <button
+    @click="handleNextStep"
+    class="p-2 px-4 text-white rounded self-end mr-4"
+    :class="{
+      'bg-marine-blue': props.currentStep !== lastStep,
+      'bg-purplish-blue': props.currentStep === lastStep
+    }"
+  >
     {{ props.currentStep !== lastStep ? 'Next Step' : 'Confirm' }}
   </button>
 </template>
