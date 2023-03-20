@@ -36,7 +36,7 @@ const options: Object = {
 const data = ref({
   plan: plans.arcade,
   yearly: false,
-  options: []
+  options: [0]
 })
 </script>
 
@@ -98,21 +98,21 @@ const data = ref({
             value="online"
             label="Online service"
             text="Access to multiplayer games"
-            price="+$1/mo"
+            :price="data.yearly ? '+$10/yr' : '+$1/mo'"
           />
           <LargeRoundedCheckbox
             name="larger-storage"
             value="larger"
             label="Larger storage"
             text="Extra 1TB of cloud save"
-            price="+$2/mo"
+            :price="data.yearly ? '+$20/yr' : '+$2/mo'"
           />
           <LargeRoundedCheckbox
             name="customizable-profile"
             value="profile"
             label="Customizable profile"
             text="Custom theme on your profile"
-            price="+$2/mo"
+            :price="data.yearly ? '+$20/yr' : '+$2/mo'"
           />
         </div>
       </div>
