@@ -4,7 +4,7 @@ import FormPanel from './components/FormPanel.vue'
 import StepButton from './components/StepButton.vue'
 import { ref } from 'vue'
 
-const currentStep = ref(4)
+const currentStep = ref(1)
 
 const changeStep = (newStep: number) => {
   currentStep.value = newStep
@@ -43,7 +43,7 @@ const nextStep = () => {
       </div>
     </header>
     <main class="flex-col flex-grow flex items-center bg-light-gray">
-      <FormPanel :current-step="currentStep"></FormPanel>
+      <FormPanel :current-step="currentStep" @step2="changeStep(2)"></FormPanel>
     </main>
     <footer class="h-16 py-10 flex flex-col items-start justify-center">
       <NextButton @next-step="nextStep" :current-step="currentStep"></NextButton>

@@ -8,6 +8,8 @@ const props = defineProps({
   currentStep: Number
 })
 
+const emit = defineEmits(['step2'])
+
 const monthlyYearlyToggle = () => {
   data.value.yearly = !data.value.yearly
   updateTotal()
@@ -88,6 +90,10 @@ const toggleCheckedCheckbox = (checked: Boolean, index: number) => {
 const changePlan = (checked: Boolean, index: number) => {
   data.value.plan = plans[index]
   updateTotal()
+}
+
+const step2 = () => {
+  emit('step2')
 }
 </script>
 
@@ -188,7 +194,7 @@ const changePlan = (checked: Boolean, index: number) => {
               <div class="font-medium">
                 {{ data.plan.display }} {{ !data.yearly ? '(Monthly)' : '(Yearly)' }}
               </div>
-              <div class="text-cool-gray underline">Change</div>
+              <a class="text-cool-gray underline cursor-pointer" @click="step2">Change</a>
             </div>
             <div class="ml-auto font-bold flex items-end mb-2">
               <div>
