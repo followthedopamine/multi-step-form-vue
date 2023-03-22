@@ -7,10 +7,18 @@ const props = defineProps({
   value: String,
   label: String,
   text: String,
-  price: String
+  price: String,
+  index: Number
 })
 
+const emit = defineEmits(['toggleChecked'])
+
 const isChecked = ref(false)
+
+const toggleChecked = (checked: boolean) => {
+  isChecked.value = checked
+  emit('toggleChecked', isChecked.value ? props.value : null, props.index)
+}
 </script>
 
 <template>
@@ -19,7 +27,7 @@ const isChecked = ref(false)
       class="absolute m-4 mt-7"
       :name="props.name"
       :value="props.value"
-      v-model="isChecked"
+      @toggle-checked="toggleChecked"
     />
     <label
       :for="props.name"

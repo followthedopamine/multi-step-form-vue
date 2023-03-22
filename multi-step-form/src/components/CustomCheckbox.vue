@@ -6,14 +6,14 @@ const props = defineProps({
   value: String
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['toggleChecked'])
 
 const isChecked = ref(false)
 
 const handleChange = (event: Event) => {
   const target = event.target as HTMLInputElement
   isChecked.value = target.checked
-  emit('update:modelValue', isChecked.value ? props.value : null)
+  emit('toggleChecked', isChecked.value ? props.value : null)
 }
 </script>
 

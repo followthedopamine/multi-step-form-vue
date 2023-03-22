@@ -5,11 +5,18 @@ const props = defineProps({
   text: String,
   subText: String,
   name: String,
+  index: Number,
   checked: {
     type: Boolean,
     default: false
   }
 })
+
+const emit = defineEmits(['checkedChanged'])
+
+const handleChange = () => {
+  emit('checkedChanged', props.checked, props.index)
+}
 </script>
 
 <template>
@@ -19,6 +26,7 @@ const props = defineProps({
     type="radio"
     class="w-0 fixed opacity-0"
     :checked="props.checked"
+    @change="handleChange"
   />
   <label
     class="cursor-pointer w-full border border-light-gray rounded-lg h-20 flex items-center mb-4"
