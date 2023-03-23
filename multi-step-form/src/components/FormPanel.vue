@@ -194,7 +194,11 @@ const step2 = () => {
               <div class="font-medium">
                 {{ data.plan.display }} {{ !data.yearly ? '(Monthly)' : '(Yearly)' }}
               </div>
-              <a class="text-cool-gray underline cursor-pointer" @click="step2">Change</a>
+              <a
+                class="text-cool-gray underline cursor-pointer hover:text-purplish-blue hover:decoration-2"
+                @click="step2"
+                >Change</a
+              >
             </div>
             <div class="ml-auto font-bold flex items-end mb-2">
               <div>
@@ -202,7 +206,7 @@ const step2 = () => {
               </div>
             </div>
           </div>
-          <hr class="border-light-gray mb-2" />
+          <hr v-show="data.options.size" class="border-light-gray mb-2" />
           <ul>
             <li
               v-for="index in data.options"
