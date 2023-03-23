@@ -24,26 +24,10 @@ const prevStep = () => {
   <div class="flex flex-col h-full">
     <header class="h-40 flex justify-center">
       <div class="mt-8 w-5/12 flex justify-between">
-        <StepButton
-          @changeStep="(newStep) => changeStep(newStep)"
-          :step="1"
-          :current-step="currentStep"
-        ></StepButton>
-        <StepButton
-          @changeStep="(newStep) => changeStep(newStep)"
-          :step="2"
-          :current-step="currentStep"
-        ></StepButton>
-        <StepButton
-          @changeStep="(newStep) => changeStep(newStep)"
-          :step="3"
-          :current-step="currentStep"
-        ></StepButton>
-        <StepButton
-          @changeStep="(newStep) => changeStep(newStep)"
-          :step="4"
-          :current-step="currentStep"
-        ></StepButton>
+        <StepButton @changeStep="changeStep" :step="1" :current-step="currentStep"></StepButton>
+        <StepButton @changeStep="changeStep" :step="2" :current-step="currentStep"></StepButton>
+        <StepButton @changeStep="changeStep" :step="3" :current-step="currentStep"></StepButton>
+        <StepButton @changeStep="changeStep" :step="4" :current-step="currentStep"></StepButton>
       </div>
     </header>
     <main class="flex-col flex-grow flex items-center bg-light-gray">
