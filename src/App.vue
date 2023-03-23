@@ -21,7 +21,7 @@ const prevStep = () => {
 </script>
 
 <template>
-  <div class="flex flex-col h-full">
+  <div class="flex flex-col h-full w-[375px] max-h-[700px]">
     <header class="h-40 flex justify-center">
       <div class="mt-8 w-5/12 flex justify-between">
         <StepButton @changeStep="changeStep" :step="1" :current-step="currentStep"></StepButton>
@@ -31,9 +31,9 @@ const prevStep = () => {
       </div>
     </header>
     <main class="flex-col flex-grow flex items-center bg-light-gray">
-      <FormPanel :current-step="currentStep" @step2="changeStep(2)"></FormPanel>
+      <FormPanel class="max-w-[345px]" :current-step="currentStep" @step2="changeStep(2)" />
     </main>
-    <footer class="h-16 py-10 flex items-center">
+    <footer class="h-16 py-10 flex items-center bg-white">
       <BackButton @prev-step="prevStep" :current-step="currentStep" />
       <NextButton @next-step="nextStep" :current-step="currentStep" />
     </footer>
