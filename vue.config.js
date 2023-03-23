@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/multi-step-form-vue/'
+  publicPath: 'https://followthedopamine.github.io/multi-step-form-vue/'
 }
