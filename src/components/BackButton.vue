@@ -11,7 +11,9 @@ const prevStep = () => {
 </script>
 
 <template>
-  <button @click="prevStep" class="ml-4" v-show="props.currentStep !== 1">Go back</button>
+  <button @click="prevStep" class="ml-4 text-cool-gray" v-show="props.currentStep !== 1">
+    Go Back
+  </button>
 </template>
 
 <style scoped></style>
