@@ -1,0 +1,3 @@
+- Desktop version
+- Form validation
+- Error states
