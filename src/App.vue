@@ -21,13 +21,24 @@ const prevStep = () => {
 </script>
 
 <template>
-  <div class="flex flex-col h-full w-[375px] max-h-[700px]">
-    <header class="h-40 flex justify-center">
-      <div class="mt-8 w-5/12 flex justify-between">
-        <StepButton @changeStep="changeStep" :step="1" :current-step="currentStep"></StepButton>
-        <StepButton @changeStep="changeStep" :step="2" :current-step="currentStep"></StepButton>
-        <StepButton @changeStep="changeStep" :step="3" :current-step="currentStep"></StepButton>
-        <StepButton @changeStep="changeStep" :step="4" :current-step="currentStep"></StepButton>
+  <div class="flex flex-col h-full w-[375px] max-h-[700px] md:w-full">
+    <header class="h-40 flex justify-center md:w-[274px] md:h-[568px]">
+      <div class="mt-8 w-5/12 flex justify-between md:w-full md:justify-start md:flex-col">
+        <StepButton
+          @changeStep="changeStep"
+          :step="1"
+          :current-step="currentStep"
+          text="YOUR INFO"
+        />
+        <StepButton
+          @changeStep="changeStep"
+          :step="2"
+          :current-step="currentStep"
+          text="SELECT PLAN"
+        />
+
+        <StepButton @changeStep="changeStep" :step="3" :current-step="currentStep" text="ADD-ONS" />
+        <StepButton @changeStep="changeStep" :step="4" :current-step="currentStep" text="SUMMARY" />
       </div>
     </header>
     <main class="flex-col flex-grow flex items-center bg-light-gray">
@@ -43,5 +54,11 @@ const prevStep = () => {
 <style scoped>
 header {
   background-image: url('assets/images/bg-sidebar-mobile.svg');
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    background-image: url('assets/images/bg-sidebar-desktop.svg');
+  }
 }
 </style>
