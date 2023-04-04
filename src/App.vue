@@ -21,26 +21,38 @@ const prevStep = () => {
 </script>
 
 <template>
-  <div class="flex flex-col h-full w-[375px] max-h-[700px] md:w-full md:mt-40">
-    <header class="h-40 flex justify-center md:w-[274px] md:h-[568px] md:z-10 md:ml-[3.8rem]">
-      <div class="mt-8 w-5/12 flex justify-between md:w-full md:justify-start md:flex-col">
-        <StepButton
-          @changeStep="changeStep"
-          :step="1"
-          :current-step="currentStep"
-          text="YOUR INFO"
-        />
-        <StepButton
-          @changeStep="changeStep"
-          :step="2"
-          :current-step="currentStep"
-          text="SELECT PLAN"
-        />
+  <div class="flex flex-col md:items-center h-full w-[375px] max-h-[700px] md:w-full md:mt-40">
+    <div class="md:z-10 md:max-w-[878px] md:w-11/12 md:pl-5">
+      <header class="h-40 flex justify-center md:w-[274px] md:h-[568px]">
+        <div class="mt-8 w-5/12 flex justify-between md:w-full md:justify-start md:flex-col">
+          <StepButton
+            @changeStep="changeStep"
+            :step="1"
+            :current-step="currentStep"
+            text="YOUR INFO"
+          />
+          <StepButton
+            @changeStep="changeStep"
+            :step="2"
+            :current-step="currentStep"
+            text="SELECT PLAN"
+          />
 
-        <StepButton @changeStep="changeStep" :step="3" :current-step="currentStep" text="ADD-ONS" />
-        <StepButton @changeStep="changeStep" :step="4" :current-step="currentStep" text="SUMMARY" />
-      </div>
-    </header>
+          <StepButton
+            @changeStep="changeStep"
+            :step="3"
+            :current-step="currentStep"
+            text="ADD-ONS"
+          />
+          <StepButton
+            @changeStep="changeStep"
+            :step="4"
+            :current-step="currentStep"
+            text="SUMMARY"
+          />
+        </div>
+      </header>
+    </div>
     <main class="flex-col flex-grow flex items-center bg-light-gray md:bg-opacity-0">
       <FormPanel :current-step="currentStep" @step2="changeStep(2)" />
     </main>
