@@ -44,9 +44,11 @@ const prevStep = () => {
     <main class="flex-col flex-grow flex items-center bg-light-gray md:bg-opacity-0">
       <FormPanel :current-step="currentStep" @step2="changeStep(2)" />
     </main>
-    <footer class="h-16 py-10 flex items-center bg-white">
+    <footer
+      class="h-16 py-10 flex items-center bg-white md:w-5/12 md:justify-between md:mt-[500px] md:ml-[450px] md:absolute md:z-10"
+    >
       <BackButton @prev-step="prevStep" :current-step="currentStep" />
-      <NextButton @next-step="nextStep" :current-step="currentStep" />
+      <NextButton class="md:ml-auto" @next-step="nextStep" :current-step="currentStep" />
     </footer>
   </div>
 </template>
