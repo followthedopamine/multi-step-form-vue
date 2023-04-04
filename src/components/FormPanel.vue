@@ -98,8 +98,10 @@ const step2 = () => {
 </script>
 
 <template>
-  <div class="bg-white p-7 w-11/12 absolute -mt-16 rounded-lg drop-shadow">
-    <form action="">
+  <div
+    class="bg-white p-7 max-w-[345px] w-11/12 absolute -mt-16 rounded-lg drop-shadow md:max-w-full md:pl-96 md:h-[600px] md:absolute md:-mt-[585px] md:pt-16"
+  >
+    <form action="" class="md:w-10/12">
       <!-- Hide this for step 2 - 5 -->
       <FormStep1 v-show="props.currentStep === 1" />
       <FormStep2
