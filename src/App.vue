@@ -56,12 +56,14 @@ const prevStep = () => {
     <main class="flex-col flex-grow flex items-center bg-light-gray md:bg-opacity-0">
       <FormPanel :current-step="currentStep" @step2="changeStep(2)" />
     </main>
-    <footer
-      class="h-16 py-10 flex items-center bg-white md:w-5/12 md:justify-between md:mt-[500px] md:ml-[450px] md:absolute md:z-10"
-    >
-      <BackButton @prev-step="prevStep" :current-step="currentStep" />
-      <NextButton class="md:ml-auto" @next-step="nextStep" :current-step="currentStep" />
-    </footer>
+    <div class="md:w-11/12 md:z-10 md:absolute md:flex md:justify-center md:max-w-[878px]">
+      <footer
+        class="h-16 py-10 flex items-center bg-white md:mt-[500px] md:relative md:left-36 md:w-[48%]"
+      >
+        <BackButton @prev-step="prevStep" :current-step="currentStep" />
+        <NextButton class="" @next-step="nextStep" :current-step="currentStep" />
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -70,7 +72,7 @@ header {
   background-image: url('assets/images/bg-sidebar-mobile.svg');
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   header {
     background-image: url('assets/images/bg-sidebar-desktop.svg');
   }
