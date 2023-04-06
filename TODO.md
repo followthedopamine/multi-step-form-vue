@@ -1,2 +1,3 @@
 - Form validation
 - Error states
+- Mobile design should be centered
