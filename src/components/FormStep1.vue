@@ -6,6 +6,14 @@ const emit = defineEmits(['updateName', 'updateEmail', 'updatePhone'])
 const updateName = (name: string) => {
   emit('updateName', name)
 }
+
+const updateEmail = (email: string) => {
+  emit('updateEmail', email)
+}
+
+const updatePhone = (phone: string) => {
+  emit('updatePhone', phone)
+}
 </script>
 
 <template>
@@ -25,8 +33,14 @@ const updateName = (name: string) => {
       input-id="email"
       label-text="Email Address"
       placeholder="e.g. stephenking@lorem.com"
+      @update:input-text="updateEmail"
     />
-    <TextInput input-id="phone" label-text="Phone Number" placeholder="e.g. +1 234 567 890" />
+    <TextInput
+      input-id="phone"
+      label-text="Phone Number"
+      placeholder="e.g. +1 234 567 890"
+      @update:input-text="updatePhone"
+    />
   </div>
 </template>
 
