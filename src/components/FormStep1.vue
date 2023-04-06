@@ -1,5 +1,11 @@
 <script lang="ts" setup>
 import TextInput from './TextInput.vue'
+
+const emit = defineEmits(['updateName', 'updateEmail', 'updatePhone'])
+
+const updateName = (name: string) => {
+  emit('updateName', name)
+}
 </script>
 
 <template>
@@ -9,7 +15,12 @@ import TextInput from './TextInput.vue'
       Please provide your name, email address, and phone number.
     </h2>
 
-    <TextInput input-id="name" label-text="Name" placeholder="e.g. Stephen King" />
+    <TextInput
+      input-id="name"
+      label-text="Name"
+      placeholder="e.g. Stephen King"
+      @update:input-text="updateName"
+    />
     <TextInput
       input-id="email"
       label-text="Email Address"

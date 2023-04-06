@@ -2,8 +2,15 @@
 const props = defineProps({
   inputId: String,
   labelText: String,
-  placeholder: String
+  placeholder: String,
+  inputText: String
 })
+
+const emit = defineEmits(['update:inputText'])
+
+const updateInput = (event: Event) => {
+  emit('update:inputText', (event.target as HTMLInputElement).value)
+}
 </script>
 
 <template>
@@ -17,6 +24,8 @@ const props = defineProps({
       :name="props.inputId"
       :id="props.inputId"
       :placeholder="props.placeholder"
+      value=""
+      @input="updateInput"
     />
   </div>
 </template>

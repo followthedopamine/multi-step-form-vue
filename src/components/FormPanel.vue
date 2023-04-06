@@ -8,7 +8,7 @@ const props = defineProps({
   currentStep: Number
 })
 
-const emit = defineEmits(['step2'])
+const emit = defineEmits(['step2', 'updateName', 'updateEmail', 'updatePhone'])
 
 const monthlyYearlyToggle = () => {
   data.value.yearly = !data.value.yearly
@@ -95,6 +95,18 @@ const changePlan = (checked: Boolean, index: number) => {
 const step2 = () => {
   emit('step2')
 }
+
+const updateName = (name: string) => {
+  emit('updateName', name)
+}
+
+const updateEmail = (email: string) => {
+  emit('updateEmail', email)
+}
+
+const updatePhone = (phone: string) => {
+  emit('updatePhone', phone)
+}
 </script>
 
 <template>
@@ -103,7 +115,12 @@ const step2 = () => {
   >
     <form action="" class="md:w-10/12">
       <!-- Hide this for step 2 - 5 -->
-      <FormStep1 v-show="props.currentStep === 1" />
+      <FormStep1
+        v-show="props.currentStep === 1"
+        @update-name="updateName"
+        @update-email="updateEmail"
+        @update-phone="updatePhone"
+      />
       <FormStep2
         v-show="props.currentStep === 2"
         :data="data"

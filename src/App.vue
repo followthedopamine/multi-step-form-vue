@@ -6,6 +6,9 @@ import BackButton from './components/BackButton.vue'
 import { ref } from 'vue'
 
 const currentStep = ref(1)
+const name = ref('')
+const email = ref('')
+const phone = ref('')
 
 const changeStep = (newStep: number) => {
   currentStep.value = newStep
@@ -17,6 +20,18 @@ const nextStep = () => {
 
 const prevStep = () => {
   currentStep.value--
+}
+
+const updateName = (newName: string) => {
+  name.value = newName
+}
+
+const updateEmail = (newEmail: string) => {
+  email.value = newEmail
+}
+
+const updatePhone = (newPhone: string) => {
+  phone.value = newPhone
 }
 </script>
 
@@ -54,7 +69,13 @@ const prevStep = () => {
       </header>
     </div>
     <main class="flex-col flex-grow flex items-center bg-light-gray md:bg-opacity-0">
-      <FormPanel :current-step="currentStep" @step2="changeStep(2)" />
+      <FormPanel
+        :current-step="currentStep"
+        @step2="changeStep(2)"
+        @update-name="updateName"
+        @update-email="updateEmail"
+        @update-phone="updatePhone"
+      />
     </main>
     <div class="md:w-11/12 md:z-10 md:absolute md:flex md:justify-center md:max-w-[878px]">
       <footer
