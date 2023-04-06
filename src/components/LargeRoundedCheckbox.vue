@@ -31,7 +31,7 @@ const toggleChecked = (checked: boolean) => {
     />
     <label
       :for="props.name"
-      class="cursor-pointer flex items-center w-full border border-light-gray rounded-lg h-[4.5rem] mb-4 bg-magnolia"
+      class="cursor-pointer flex items-center w-full border border-light-gray hover:border-[#544c97] rounded-lg h-[4.5rem] mb-4 bg-magnolia"
       :class="{
         'border-light-gray': !isChecked,
         'border-purplish-blue': isChecked,

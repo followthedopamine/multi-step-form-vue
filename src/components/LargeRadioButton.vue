@@ -29,7 +29,7 @@ const handleChange = () => {
     @change="handleChange"
   />
   <label
-    class="cursor-pointer w-full border border-light-gray rounded-lg h-20 flex items-center mb-4"
+    class="cursor-pointer w-full border border-light-gray rounded-lg h-20 flex items-center mb-4 hover:border-[#544c97]"
     :for="props.value"
   >
     <i class="w-[40px] h-[40px] block mx-4" :class="props.value"></i>
