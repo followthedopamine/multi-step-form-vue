@@ -22,8 +22,8 @@ const prevStep = () => {
 
 <template>
   <div class="flex flex-col md:items-center h-full w-[375px] max-h-[700px] md:w-full md:mt-40">
-    <div class="md:z-10 md:max-w-[878px] md:w-11/12 md:pl-5">
-      <header class="h-40 flex justify-center md:w-[274px] md:h-[568px]">
+    <div class="md:z-20 md:max-w-[878px] md:w-11/12 md:pl-5 md:pointer-events-none">
+      <header class="h-40 flex justify-center md:w-[274px] md:h-[568px] md:pointer-events-auto">
         <div class="mt-8 w-5/12 flex justify-between md:w-full md:justify-start md:flex-col">
           <StepButton
             @changeStep="changeStep"
@@ -58,7 +58,7 @@ const prevStep = () => {
     </main>
     <div class="md:w-11/12 md:z-10 md:absolute md:flex md:justify-center md:max-w-[878px]">
       <footer
-        class="h-16 py-10 flex items-center bg-white md:mt-[500px] md:relative md:left-36 md:w-[48%]"
+        class="h-16 py-10 flex items-center bg-white md:top-[500px] md:relative md:left-36 md:w-[48%]"
       >
         <BackButton @prev-step="prevStep" :current-step="currentStep" />
         <NextButton class="" @next-step="nextStep" :current-step="currentStep" />

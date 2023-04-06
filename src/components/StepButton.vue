@@ -31,7 +31,7 @@ const handleChangeStep = () => {
       >
         {{ props.step }}
       </button>
-      <span class="hidden md:flex flex-col pl-4">
+      <span class="hidden md:flex flex-col pl-4" @click="handleChangeStep">
         <span class="text-cool-gray text-xs">STEP {{ props.step }}</span>
         <span class="text-white text-sm font-bold">{{ props.text }}</span>
       </span>
