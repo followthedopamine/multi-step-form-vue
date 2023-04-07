@@ -9,12 +9,15 @@ const currentStep = ref(1)
 const name = ref('')
 const email = ref('')
 const phone = ref('')
+const errors = ref({ name: '', email: '', phone: '' })
 
 const changeStep = (newStep: number) => {
+  if (!validateForm()) return
   currentStep.value = newStep
 }
 
 const nextStep = () => {
+  if (!validateForm()) return
   currentStep.value++
 }
 
@@ -24,14 +27,57 @@ const prevStep = () => {
 
 const updateName = (newName: string) => {
   name.value = newName
+  validateName()
 }
 
 const updateEmail = (newEmail: string) => {
   email.value = newEmail
+  validateEmail()
 }
 
 const updatePhone = (newPhone: string) => {
   phone.value = newPhone
+  validatePhone()
+}
+
+const validateName = (): boolean => {
+  if (name.value.length > 0) {
+    errors.value.name = ''
+    return true
+  } else {
+    errors.value.name = 'Name is invalid'
+    return false
+  }
+}
+
+const validateEmail = (): boolean => {
+  if (email.value.length > 0) {
+    errors.value.email = ''
+    return true
+  } else {
+    errors.value.email = 'Email is invalid'
+    return false
+  }
+}
+
+const validatePhone = (): boolean => {
+  if (phone.value.length > 6) {
+    errors.value.phone = ''
+    return true
+  } else {
+    errors.value.phone = 'Phone is invalid'
+    return false
+  }
+}
+
+const validateForm = (): boolean => {
+  let isValid: boolean = true
+  if (currentStep.value == 1) {
+    if (!validateName()) isValid = false
+    if (!validateEmail()) isValid = false
+    if (!validatePhone()) isValid = false
+  }
+  return isValid
 }
 </script>
 
@@ -75,6 +121,7 @@ const updatePhone = (newPhone: string) => {
         @update-name="updateName"
         @update-email="updateEmail"
         @update-phone="updatePhone"
+        :errors="errors"
       />
     </main>
     <div class="md:w-11/12 md:z-10 md:absolute md:flex md:justify-center md:max-w-[878px]">

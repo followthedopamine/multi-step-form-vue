@@ -5,7 +5,8 @@ import FormStep3 from './FormStep3.vue'
 import FormStep4 from './FormStep4.vue'
 import { ref } from 'vue'
 const props = defineProps({
-  currentStep: Number
+  currentStep: Number,
+  errors: { type: Object, required: true }
 })
 
 const emit = defineEmits(['step2', 'updateName', 'updateEmail', 'updatePhone'])
@@ -120,6 +121,7 @@ const updatePhone = (phone: string) => {
         @update-name="updateName"
         @update-email="updateEmail"
         @update-phone="updatePhone"
+        :errors="props.errors"
       />
       <FormStep2
         v-show="props.currentStep === 2"
